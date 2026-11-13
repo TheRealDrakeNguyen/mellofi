@@ -83,7 +83,8 @@ fileInput.addEventListener('change', () => {
   $('#player-subtitle').textContent = 'Playing locally from your device';
   playButton.disabled = false;
   seek.disabled = false;
-  playButton.textContent = '▶';
+  playButton.querySelector('.play-icon').classList.remove('is-playing');
+  playButton.setAttribute('aria-label', 'Play music');
   notify('Track loaded. Press play to listen.');
 });
 playButton.addEventListener('click', () => {
@@ -91,8 +92,14 @@ playButton.addEventListener('click', () => {
   if (audio.paused) audio.play().catch(() => notify('Unable to play this audio file.'));
   else audio.pause();
 });
-audio.addEventListener('play', () => { playButton.textContent = 'Ⅱ'; playButton.setAttribute('aria-label', 'Pause music'); });
-audio.addEventListener('pause', () => { playButton.textContent = '▶'; playButton.setAttribute('aria-label', 'Play music'); });
+audio.addEventListener('play', () => {
+  playButton.querySelector('.play-icon').classList.add('is-playing');
+  playButton.setAttribute('aria-label', 'Pause music');
+});
+audio.addEventListener('pause', () => {
+  playButton.querySelector('.play-icon').classList.remove('is-playing');
+  playButton.setAttribute('aria-label', 'Play music');
+});
 audio.addEventListener('loadedmetadata', () => { $('#duration').textContent = formatTime(audio.duration); });
 audio.addEventListener('timeupdate', () => {
   $('#current-time').textContent = formatTime(audio.currentTime);
