@@ -348,13 +348,18 @@ button {
     transition: color .2s
 }
 
-.round-play {
-    width: 31px;
-    height: 31px;
-    border: 1px solid #826e75;
-    border-radius: 50%;
-    display: grid;
-    place-items: center
+.hero-scroll-icon {
+    transition: transform .2s
+}
+
+.quiet-link:hover .hero-scroll-icon {
+    transform: translateY(3px) rotate(135deg)
+}
+
+.hero-actions .quiet-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 5px;
+    border-radius: 2px
 }
 
 .hero-footnote {
@@ -1055,23 +1060,6 @@ button {
     font-size: 10px
 }
 
-.orbit {
-    position: absolute;
-    pointer-events: none;
-    border: 1px solid #a071812b;
-    border-radius: 50%;
-    width: 650px;
-    height: 650px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%)
-}
-
-.orbit-two {
-    width: 900px;
-    height: 900px
-}
-
 footer {
     max-width: 1320px;
     margin: auto;
@@ -1099,6 +1087,9 @@ footer {
 }
 
 .back-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: 12px;
     border-bottom: 1px solid #846b79;
     padding: 8px 0
