@@ -5,10 +5,10 @@
    visitors to the wrong artist.
    =============================================================== */
 const MELLOFI_LINKS = {
-  youtube: '',
-  soundcloud: '',
-  spotify: '',
-  instagram: '',
+  youtube: 'https://www.youtube.com/channel/UCCJrQYAaSWDCt6yaijKfK4Q',
+  // soundcloud: 'https://soundcloud.com/mellofistudio',
+  // spotify: '',
+  instagram: 'https://www.instagram.com/mellofistudio/',
 };
 
 const $ = (sel) => document.querySelector(sel);
